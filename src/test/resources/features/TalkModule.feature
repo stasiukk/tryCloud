@@ -54,6 +54,6 @@ Feature: Manage Conversations in the Talk Module
     When the user clicks on the settings icon
     And the user selects the "Delete Conversation" option
     When the user clicks the "Yes" button to confirm
-    Then the conversation titled "Name" should no longer appear in the conversation list
+    Then the conversation titled "Group 11" should no longer appear in the conversation list
     And the conversation should be deleted successfully
 
