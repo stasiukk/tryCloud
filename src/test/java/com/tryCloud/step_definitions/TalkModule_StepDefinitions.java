@@ -7,8 +7,11 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+
+import java.util.List;
 
 public class TalkModule_StepDefinitions {
 
@@ -17,6 +20,8 @@ public class TalkModule_StepDefinitions {
 
     @And("the user logs in successfully")
     public void theUserLogsInSuccessfully() {
+        String expectedTitle = "Dashboard - Trycloud QA";
+        Assert.assertTrue(Driver.getDriver().getTitle().contains(expectedTitle));
         System.out.println("User logged in successfully.");
     }
 
@@ -48,7 +53,9 @@ public class TalkModule_StepDefinitions {
 
     @Then("the user should see the search participants field")
     public void theUserShouldSeeTheSearchParticipantsField() {
-        System.out.println("Search participants field is displayed.");
+        WebElement searchField = Driver.getDriver().findElement(By.xpath("//input[@placeholder='Search participants']"));
+        Assert.assertTrue("Search field is not displayed!", searchField.isDisplayed());
+
     }
 
     @When("the user clicks on the {string} field")
@@ -94,10 +101,6 @@ public class TalkModule_StepDefinitions {
         System.out.println("User sees conversation titled " + name + " in the conversation list.");
     }
 
-    @And("the conversation should be created successfully")
-    public void theConversationShouldBeCreatedSuccessfully() {
-        System.out.println("Conversation created successfully.");
-    }
 
     @Given("the conversation titled {string} is available in the conversation list")
     public void theConversationTitledIsAvailableInTheConversationList(String name) {
@@ -131,7 +134,8 @@ public class TalkModule_StepDefinitions {
 
     @Then("the user should see a confirmation prompt")
     public void theUserShouldSeeAConfirmationPrompt() {
-        System.out.println("Confirmation prompt is displayed.");
+        WebElement confirmation = Driver.getDriver().findElement(By.xpath("//p[contains(text(), 'Do you really want to delete')]"));
+        Assert.assertTrue(confirmation.isDisplayed());
     }
 
 
@@ -143,7 +147,10 @@ public class TalkModule_StepDefinitions {
 
     @Then("the conversation titled {string} should no longer appear in the conversation list")
     public void theConversationTitledShouldNoLongerAppearInTheConversationList(String name) {
-        System.out.println("Conversation titled " + name + " is no longer present in the conversation list.");
+        List<WebElement> conversations = Driver.getDriver().findElements(By.xpath("//ul[contains(@class, 'conversations')]//span[contains(@class, 'acli__content__line-one__title') and text()='" + name + "']"));
+        Assert.assertTrue("Conversation titled '" + name + "' is still present in the list.", conversations.isEmpty());
+
+
     }
 
     @And("the conversation should be deleted successfully")
