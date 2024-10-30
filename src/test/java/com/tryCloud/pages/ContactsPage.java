@@ -60,8 +60,8 @@ public class ContactsPage {
     @FindBy(xpath = "//div[contains(text(),'User08')]")
     public WebElement contactUser08;
 
-    @FindBy(xpath = "//div[contains(text(),'Vladimir Casap')]")
-    public WebElement contactVladimir;
+    @FindBy(xpath = "//div[contains(text(),'New contact')]")
+    public WebElement blankContact;
 
 
 }

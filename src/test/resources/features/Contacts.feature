@@ -8,11 +8,17 @@ Feature:
     Given User is on contact page
 
 
-  Scenario: User is able to create new contact
+  Scenario Outline: User is able to create new contacts
 
     And User click on New contact
-    And User enter contact name
-    Then New contact should be created
+    And User enter contact "<name>"
+    Then New contact "<name>"should be created
+    Examples:
+      | name          |
+      | John Deer     |
+      | Daniel Jonson |
+      | Alex Deer     |
+      |               |
 
 
   Scenario: User is able to see all contact as a list in the middle column and total number of
@@ -34,13 +40,19 @@ Feature:
     Then User click Choose Button
 
 
-    Scenario: User can Delete any selected contacts
-      And User click on New contact
-      And User enter contact name
-      And User select contact from the list
-      And User click on 3 dots action button
-      And User click on Delete
-      Then Contact should be deleted
+  Scenario Outline: User can Delete any selected contacts
+    And User click on New contact
+    And User enter contact "<name>"
+    And User select contact "<name>" from the list
+    And User click on 3 dots action button
+    And User click on Delete
+    Then Contact "<name>" should be deleted
+    Examples:
+      | name           |
+      | Vladimir Casap |
+      | Johnny Depp    |
+      | Angelina Jolie |
+      |                |
 
 
 
