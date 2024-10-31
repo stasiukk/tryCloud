@@ -12,24 +12,24 @@ public class LogoutPage {
     WebDriver driver;
     LogoutPage logoutPage;
 
-    public LogoutPage(){
+    public LogoutPage() {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
 
-    @FindBy(xpath = "//div[@class='avatardiv avatardiv-shown']//img")
+    //    @FindBy(xpath = "//div[@class='avatardiv avatardiv-shown']//img")
+    @FindBy(id = "expand")
     public WebElement iconLocator;
 
 
-    @FindBy(id = "logout")
+    @FindBy(xpath = "//li[@data-id='logout']/a")
     public WebElement logoutButton;
 
-    @FindBy(xpath="//div[@class='logo']")
+    @FindBy(xpath = "//div[@class='logo']")
     public WebElement homePageHeader;
 
 
 
-    }
-
+}
 
 
