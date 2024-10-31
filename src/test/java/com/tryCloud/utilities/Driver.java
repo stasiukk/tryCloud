@@ -61,7 +61,8 @@ public class Driver {
     /*
     Create a new Driver.closeDriver(); it will use .quit() method to quit browsers, and then set the driver value back to null.
      */
-    public static void closeDriver(){
+   public static void closeDriver(){
+
         if (driverPool.get()!=null){
             /*
             This line will terminate the currently existing driver completely. It will not exist going forward.
