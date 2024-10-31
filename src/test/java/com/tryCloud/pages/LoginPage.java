@@ -26,7 +26,7 @@ public class LoginPage {
 
     public void login(String userNameStr, String passwordStr) {
         userName.sendKeys(userNameStr);
-        BrowserUtils.waitFor(2); // wait for 3 seconds for the page to load
+        BrowserUtils.waitFor(1); // wait for 3 seconds for the page to load
         password.sendKeys(passwordStr);
         BrowserUtils.waitFor(1);
         submit.click();
