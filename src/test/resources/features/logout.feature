@@ -1,17 +1,24 @@
 @logout
-Feature: Users log out functionality.
+Feature: User log out functionality
 
-  Background: User is already logged in.
+  As a user,
+  I should be able to log out successfully.
 
-
-  Scenario: User is already logged in
+  Background:
     Given the user is on the login page
-    Then user logs out and ends up on login page
-    And user tries to click back to access home page
-    Then user should be redirected to login page
+    And the user is logged in successfully
+    And the user is on the home page
 
+  Scenario: User logs out and is redirected to login page
+    When the user logs out
+    Then the user should be redirected to the login page
 
-#    Given the user logged in with username as "User1" and password as "UserUser123"
+  Scenario: User cannot access home page after logging out
+    Given the user is on the login page after logging out
+    When the user clicks the browser's back button
+    Then the user should be redirected back to the login page
+    Then user sees the login page header "TRYCLOUD"
+
 
 
 
