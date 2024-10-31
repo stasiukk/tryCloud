@@ -169,7 +169,6 @@ public class Contacts_StepDefinitions {
         for (WebElement contact : contactElements) {
             contacts.add(contact.getText());
         }
-        System.out.println("contacts = " + contacts);
         Assert.assertFalse(contacts.contains(name));
         BrowserUtils.sleep(1);
     }
