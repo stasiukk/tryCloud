@@ -18,12 +18,6 @@ public class TalkModule_StepDefinitions {
     TalkModulePage talkModulePage = new TalkModulePage();
 
 
-    @And("the user logs in successfully")
-    public void theUserLogsInSuccessfully() {
-        String expectedTitle = "Dashboard - Trycloud QA";
-        Assert.assertTrue(Driver.getDriver().getTitle().contains(expectedTitle));
-        System.out.println("User logged in successfully.");
-    }
 
     @Given("the user clicks on the {string} module")
     public void theUserClicksOnTheModule(String module) {

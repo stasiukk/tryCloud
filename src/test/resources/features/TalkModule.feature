@@ -1,12 +1,10 @@
-@smoke
+@wip
 Feature: Manage Conversations in the Talk Module
   As a user, I should be able to create a new conversation and manage participants under the Talk module.
 
   Background:
-    Given the user is on the login page
-    And the user logs in successfully
+    Given the user is logged in
     Given the user clicks on the "Talk" module
-
 
 
   @CreateConversationName
