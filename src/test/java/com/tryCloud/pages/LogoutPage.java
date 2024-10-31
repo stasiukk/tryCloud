@@ -12,6 +12,7 @@ public class LogoutPage {
     WebDriver driver;
     LogoutPage logoutPage;
 
+
     public LogoutPage() {
         PageFactory.initElements(Driver.getDriver(), this);
     }
@@ -29,7 +30,9 @@ public class LogoutPage {
     public WebElement homePageHeader;
 
 
-
+    public void navigateBack() {
+        driver.navigate().back();
+    }
 }
 
 

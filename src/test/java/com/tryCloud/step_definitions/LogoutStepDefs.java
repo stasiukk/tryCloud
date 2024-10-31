@@ -17,13 +17,14 @@ import static com.tryCloud.utilities.BrowserUtils.waitFor;
 
 public class LogoutStepDefs {
 
-    WebDriver driver;
+
+
 
     LogoutPage logoutPage = new LogoutPage();
 
 
-    @Given("the user is logged in successfully")
-    public void the_user_is_logged_in_successfully() {
+//  @Given("the user is logged in")
+//    public void the_user_is_logged_in() {
 //        driver = Driver.getDriver();
 //        driver.get("https://www.trycloud.com/");
 //        BrowserUtils.waitFor(2);
@@ -32,9 +33,9 @@ public class LogoutStepDefs {
 //        BrowserUtils.waitFor(2);
 //        Assert.assertTrue(driver.findElement(By.id("logout")).isDisplayed());
 
-    }
 
-    @And("the user is on the home page")
+
+    @Given("the user is on the home page")
     public void theUserIsOnTheHomePage() {
         String homepageTitle = "Dashboard - Trycloud QA";
         Assert.assertTrue(Driver.getDriver().getTitle().contains(homepageTitle));
@@ -49,15 +50,11 @@ public class LogoutStepDefs {
 
     }
 
-    @Then("the user see the Log out button")
-    public void theUserSeeTheLogOutButton() {
-        waitFor(1);
-        Assert.assertTrue(logoutPage.logoutButton.isDisplayed());
-    }
 
     @And("the user clicks on Log out button")
     public void theUserClicksOnLogOutButton() {
         logoutPage.logoutButton.click();
+        waitFor(1);
     }
 
     @Then("the user should be redirected to the login page")
@@ -67,27 +64,27 @@ public class LogoutStepDefs {
 
 
 }
-    @Given("the user is on the login page after logging out")
-    public void the_user_is_on_the_login_page_after_logging_out() {
 
-    }
 
 @When("the user clicks the browser's back button")
 public void the_user_clicks_the_browser_s_back_button() {
-    driver.navigate().back();
+    waitFor(3);
+    //driver.navigate().back();
+   Driver.getDriver().navigate().back();
+    waitFor(3);
+
+
 }
 
-@And("the user should be redirected back to the login page")
-public void the_user_should_be_redirected_back_to_the_login_page() {
-    BrowserUtils.verifyURLContains("login");
 
-}
-
-
-    @Then("user sees the login page header {string}")
-    public void user_sees_the_login_page_header(String string) {
+    @Then("title should contain {string}")
+    public void title_should_contain (String expectedTitle ) {
+        Assert.assertEquals(Driver.getDriver().getTitle(), expectedTitle);
 
     }
+
+
+
 
 }
 
