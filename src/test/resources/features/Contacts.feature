@@ -3,8 +3,7 @@ Feature:
   As a user, I should be able to create a new contact and edit/delete any contact under Contacts module
 
   Background:
-    Given the user is on the login page
-    And the user logs in successfully
+    Given the user is logged in
     Given User is on contact page
 
 
