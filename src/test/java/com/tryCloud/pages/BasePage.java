@@ -38,6 +38,9 @@ public abstract class BasePage {
     @FindBy(linkText = "My User")
     public WebElement myUser;
 
+    @FindBy(linkText = "My User")
+    public WebElement myUser1;
+
 
 
     public BasePage() {
