@@ -9,12 +9,11 @@ public class LoginStepDefs {
 
     LoginPage loginPage = new LoginPage();
 
-    @Given("the user is on the login page")
-    public void the_user_is_on_the_login_page() {
+    @Given("the user is logged in")
+    public void the_user_is_logged_in() {
 
         Driver.getDriver().get(ConfigurationReader.getProperty("url"));
-        loginPage.login(ConfigurationReader.getProperty("userName"), ConfigurationReader.getProperty("password")  );
-    }
+        loginPage.login(ConfigurationReader.getProperty("userName"), ConfigurationReader.getProperty("password"));
 
 //    @Given("the user logged in as {string}")
 //    public void the_user_logged_in_as(String userType) {
@@ -43,7 +42,4 @@ public class LoginStepDefs {
 //    }
 
 
-
-
-
-}
+    }}
