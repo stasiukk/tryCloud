@@ -12,7 +12,7 @@ public class LoginStepDefs {
     @Given("the user is logged in")
     public void the_user_is_logged_in() {
 
-        Driver.getDriver().get(ConfigurationReader.getProperty("url"));
+
         loginPage.login(ConfigurationReader.getProperty("userName"), ConfigurationReader.getProperty("password"));
 
 
