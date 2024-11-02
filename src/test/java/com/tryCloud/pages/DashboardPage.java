@@ -1,9 +1,12 @@
 package com.tryCloud.pages;
 
 import com.tryCloud.utilities.Driver;
+import io.cucumber.java.bs.I;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+
+import java.util.List;
 
 public class DashboardPage {
 
@@ -48,6 +51,11 @@ public class DashboardPage {
     @FindBy(xpath = "//label[@for='panel-checkbox-user_status']")
     public WebElement recentStatusesWidget;
 
+    @FindBy(xpath = "//span[@title='Employee11']")
+    public WebElement username;
+
+
+
 
 
 
@@ -65,6 +73,12 @@ public class DashboardPage {
 
     @FindBy (xpath = "//label[@for='user-status-online-status-invisible']")
     public WebElement invisibleStatusIcon;
+
+    @FindBy(id = "appmenu")
+    public WebElement modules;
+
+
+
 
 
 
