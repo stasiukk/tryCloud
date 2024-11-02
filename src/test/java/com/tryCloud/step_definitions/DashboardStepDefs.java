@@ -8,25 +8,20 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class DashboardStepDefs {
 
     DashboardPage dashboardPage = new DashboardPage();
 
-    @When("user can see all modules")
-    public void userCanSeeAllModules(List<String> listOfModules) {
-        System.out.println("listOfModules = " + listOfModules);
 
-    }
 
-    @When("user can see username on dashboard")
-    public void userCanSeeUsernameOnDashboard() {
-        dashboardPage.usernameIcon.click();
-    }
 
     @When("user can click on customize button")
     public void userCanClickOnCustomizeButton() {
@@ -105,49 +100,68 @@ public class DashboardStepDefs {
         dashboardPage.recentStatusesWidget.click();
         BrowserUtils.sleep(2);
     }
-    @When("user should be able to click on username icon")
-    public void userShouldBeAbleToClickOnUsernameIcon() {
+
+
+
+    @When("user clicks on username icon")
+    public void userClicksOnUsernameIcon() {
         dashboardPage.usernameIcon.click();
-
- }
-
+        BrowserUtils.sleep(2);
 
 
-    @And("user should be able to click on set status icon")
-    public void userShouldBeAbleToClickOnSetStatusIcon() {
-        dashboardPage.setStatusButton.click();
-    }
 
-
-    @And("user should be able to click on online status icon")
-    public void userShouldBeAbleToClickOnOnlineStatusIcon() {
-        dashboardPage.onlineStatusIcon.click();
-    }
-
-    @And("user should be able to click message status icon")
-    public void userShouldBeAbleToClickMessageStatusIcon() {
-        dashboardPage.statusMessageIcon.click();
-    }
-
-    @And("user should be able to click on away status icon")
-    public void userShouldBeAbleToClickOnAwayStatusIcon() {
-        dashboardPage.awayButtonIcon.click();
-    }
-
-    @And("user should be able to click on do not disturb status icon")
-    public void userShouldBeAbleToClickOnDoNotDisturbStatusIcon() {
-        dashboardPage.doNotDisturbBtn.click();
 
     }
+        @And("user should be able to click on set status icon")
+        public void userShouldBeAbleToClickOnSetStatusIcon () {
+            dashboardPage.setStatusButton.click();
+        }
 
-    @And("user should be able to click on invisible status icon")
-    public void userShouldBeAbleToClickOnInvisibleStatusIcon() {
-        dashboardPage.invisibleStatusIcon.click();
+
+        @And("user should be able to click on online status icon")
+        public void userShouldBeAbleToClickOnOnlineStatusIcon () {
+            dashboardPage.onlineStatusIcon.click();
+        }
+
+        @And("user should be able to click message status icon")
+        public void userShouldBeAbleToClickMessageStatusIcon () {
+            dashboardPage.statusMessageIcon.click();
+        }
+
+        @And("user should be able to click on away status icon")
+        public void userShouldBeAbleToClickOnAwayStatusIcon () {
+            dashboardPage.awayButtonIcon.click();
+        }
+
+        @And("user should be able to click on do not disturb status icon")
+        public void userShouldBeAbleToClickOnDoNotDisturbStatusIcon () {
+            dashboardPage.doNotDisturbBtn.click();
+
+        }
+
+        @And("user should be able to click on invisible status icon")
+        public void userShouldBeAbleToClickOnInvisibleStatusIcon () {
+            dashboardPage.invisibleStatusIcon.click();
+        }
+
+
+
+
+    @Then("user should be able to see username on dashboard")
+    public void userShouldBeAbleToSeeUsernameOnDashboard() {
+        Assert.assertTrue("Username is not displayed",dashboardPage.username.getText().equals("Employee11"));
     }
 
+    @When("user click on username icon")
+    public void userClickOnUsernameIcon() {
+        dashboardPage.usernameIcon.click();
+    }
 
+    @Then("user can see list of modules")
+    public void userCanSeeListOfModules() {
+        Assert.assertTrue("Modules are not visible",dashboardPage.modules.isDisplayed());
+    }
 }
-
 
 
 

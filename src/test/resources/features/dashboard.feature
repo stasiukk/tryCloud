@@ -2,24 +2,19 @@
   Feature: User should be able to modify Dashboard
 
     Background: User is already in the log in page
-      Given the user is on the login page
+      Given the user is logged in
 
 
     Scenario: Verify modules list on dashboard
-      When  user can see all modules
-      |dashboard|
-      |files    |
-      |photos   |
-      |activity |
-      |spreed   |
-      |mail     |
-      |contacts |
-      |circles  |
-      |calendar |
-      |deck     |
+      Then  user can see list of modules
+
+
+
 
     Scenario: Verify username on dashboard
-       When user can see username on dashboard
+      When user click on username icon
+     Then user should be able to see username on dashboard
+
 
       Scenario: Verify customize button
         When user can click on customize button
